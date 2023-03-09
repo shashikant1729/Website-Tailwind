@@ -3,8 +3,9 @@ module.exports = {
     dark : 'class',
     theme: {
       fontFamily: {
-        display: ['Open Sans', 'sans-serif'],
-        body: ['Open Sans', 'sans-serif'],
+        'sans': ['Helvetica', 'Arial', 'sans-serif'],
+        'display': ['Open Sans', 'sans-serif'],
+        'body': ['Open Sans', 'sans-serif'],
       },
       extend: {
         fontSize: {
@@ -41,8 +42,11 @@ module.exports = {
         backgroundImage: {
           'hero-pattern':
             "url('https://i.ibb.co/MkvLDfb/Rectangle-4389.png')",
+            'bg-home':"linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.7)), url('assets/images/bg.jpg')"
         },
       },
     },
-    plugins: [],
+    plugins: [
+      require('tailwindcss-blend-mode')(),
+    ],
   };

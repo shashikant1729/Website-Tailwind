@@ -1,9 +1,47 @@
-import React from 'react'
-
+import React, { Suspense, lazy } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home, About } from "./pages/Index";
+const Homy = lazy(() => import("./pages/Home"));
+const Abouty = lazy(() => import("./pages/About"));
 const App = () => {
-  return (
-    <div className='text-xl text-red-500'>App</div>
-  )
-}
+	return (
+		<div className="w-screen h-screen max-h-screen overflow-hidden">
+			<BrowserRouter>
+				<Routes>
+					<Route
+						exact
+						path="/"
+						element={
+							<Suspense
+								fallback={
+									<div className="bg-gray-800 w-full h-full text-center text-8xl text-white">
+										Wait for Home....
+									</div>
+								}
+							>
+								<Homy />
+							</Suspense>
+						}
+					/>
+					<Route
+						exact
+						path="/about"
+						element={
+							<Suspense
+								fallback={
+									<div className="bg-gray-800 w-full h-full  text-center text-8xl text-white">
+										Wait for About....
+									</div>
+								}
+							>
+								<Abouty />
+							</Suspense>
+						}
+					/>
+				</Routes>
+			</BrowserRouter>
+		</div>
+	);
+};
 
-export default App
+export default App;
