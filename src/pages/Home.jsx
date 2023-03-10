@@ -27,15 +27,21 @@ const Home = () => {
 							I'm a Electronics Engineer and Software Developer based in
 							Varanasi, India.
 						</p>
-						<button className="rounded-md p-3 bg-pink-600 hover:text-pink-600 hover:bg-white transition-all delay-300 drop-shadow-lg hover:drop-shadow-2xl">MORE ABOUT ME</button>
+						<button className="rounded-md p-3 bg-pink-600 hover:text-pink-600 hover:bg-white transition-all delay-300 drop-shadow-lg hover:drop-shadow-2xl">
+							MORE ABOUT ME
+						</button>
 					</div>
 				</div>
 			</div>
 			<div className="flex flex-row w-0 h-0 md:w-full md:h-1/6 justify-between overflow-hidden">
 				<div className="flex flex-col justify-end text-white p-4 gap-1 text-sm  ">
 					<p>Let's work together</p>
-					<p className="text-pink-600 cursor-pointer"><a href="mailto:shashi1729kant@gmail.com">shashi1729kant</a></p>
-					<p><a href="tel:+4733378901">+91 9369 249385</a></p>
+					<p className="text-pink-600 cursor-pointer">
+						<a href="mailto:shashi1729kant@gmail.com">shashi1729kant</a>
+					</p>
+					<p>
+						<a href="tel:+4733378901">+91 9369 249385</a>
+					</p>
 				</div>
 				<div className="flex flex-row gap-6 justify-end text-white pt-10 px-5 text-lg max-h-content">
 					<button className="hover:text-pink-600 transition-all delay-100">
