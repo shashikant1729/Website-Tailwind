@@ -147,7 +147,7 @@ const About = () => {
 				<div className="flex flex-col w-full py-16 px-12 bg-slate-100">
 					<div className="w-full place-content-center pb-4">
 						<p className="   text-4xl text-center font-serif font-bold ">
-							SKILL
+							Skill
 						</p>
 					</div>
 
