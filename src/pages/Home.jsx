@@ -8,7 +8,7 @@ import { BsInstagram } from "react-icons/bs";
 const Home = () => {
 	// const { activeMenu, showDiv, setShowDiv } = useStateContext();
 	return (
-		<div className="flex flex-col w-full h-full  bg-cover bg-center relative">
+		<div className="flex flex-col w-full h-full bg-bg-home bg-cover bg-center relative">
 			<div
 				className="absolute h-96 w-80 md:origin-top-left md:rotate-12 md:-left-56 md:-top-20  z-1 origin-top-left rotate-45 -left-8 -bottom-60 "
 				style={{

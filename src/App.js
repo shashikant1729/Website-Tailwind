@@ -2,18 +2,15 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home, About } from "./pages/Index";
-import { Bar, Settings } from "./components/Index";
+import { Bar, Setting } from "./components/Index";
 const Homy = lazy(() => import("./pages/Home"));
 const Abouty = lazy(() => import("./pages/About"));
 const Contacty = lazy(() => import("./pages/Contact"));
 const App = () => {
 	return (
-		<div className="w-screen h-screen max-h-screen overflow-hidden">
-			<div className="absolute top-4 right-10 z-1">
-				<Bar />
-			</div>
-			<div className="w-full h-full z-2">
-			{/* <BrowserRouter> */}
+		<div className="absolute w-screen h-screen max-h-screen overflow-hidden">
+			<div className=" w-full h-full z-100">
+				{/* <BrowserRouter> */}
 				<Routes>
 					<Route
 						exact
@@ -45,9 +42,29 @@ const App = () => {
 							</Suspense>
 						}
 					/>
-					<Route exact path="/contact" element={<Contacty />} />
+					<Route
+						exact
+						path="/contact"
+						element={
+							<Suspense
+								fallback={
+									<div className="bg-gray-800 w-full h-full  text-center text-8xl text-white">
+										Wait for Contact....
+									</div>
+								}
+							>
+								<Contacty />
+							</Suspense>
+						}
+					/>
 				</Routes>
-			{/* </BrowserRouter> */}
+				{/* </BrowserRouter> */}
+			</div>
+			<div className="absolute top-4 right-10 ">
+				<Bar />
+			</div>
+			<div className="absolute top-40 right-0 ">
+				<Setting />
 			</div>
 		</div>
 	);
