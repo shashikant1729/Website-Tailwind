@@ -1,15 +1,23 @@
 /* eslint-disable no-unused-vars */
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useStateContext } from "./contexts/ContextProvider";
 import { Home, About } from "./pages/Index";
 import { Bar, Setting } from "./components/Index";
 const Homy = lazy(() => import("./pages/Home"));
 const Abouty = lazy(() => import("./pages/About"));
 const Contacty = lazy(() => import("./pages/Contact"));
 const App = () => {
+	const { setCurrentSetting, setActiveMenu } = useStateContext();
 	return (
 		<div className="absolute w-screen h-screen max-h-screen overflow-hidden">
-			<div className=" w-full h-full z-100">
+			<div
+				onClick={() => {
+					setActiveMenu(false);
+					setCurrentSetting(false);
+				}}
+				className=" w-full h-full z-100"
+			>
 				{/* <BrowserRouter> */}
 				<Routes>
 					<Route
@@ -60,7 +68,7 @@ const App = () => {
 				</Routes>
 				{/* </BrowserRouter> */}
 			</div>
-			<div className="absolute top-4 right-10 ">
+			<div className="absolute top-2 right-8 ">
 				<Bar />
 			</div>
 			<div className="absolute top-40 right-0 ">

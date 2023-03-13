@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import my_image from "../assets/images/my_image_1.png";
 import { FaBirthdayCake } from "react-icons/fa";
@@ -5,11 +6,13 @@ import { BsFlag, BsFillTelephoneFill } from "react-icons/bs";
 import { HiLocationMarker } from "react-icons/hi";
 import { GrMail } from "react-icons/gr";
 import { AiOutlineSetting, AiOutlineHeart } from "react-icons/ai";
-import { AboutCarousel, AboutChart } from "../components/Index";
+import { AboutCarousel } from "../components/Index";
 import { MdOutlineCases } from "react-icons/md";
 import { BiLike } from "react-icons/bi";
+import { useStateContext } from "../contexts/ContextProvider";
 
 const About = () => {
+	const { currentColor } = useStateContext();
 	return (
 		<div className="w-full h-full max-h-screen overflow-y-auto ">
 			<div className="flex text-3xl sm:text-4xl md:text-5xl lg:text-6xl h-40 w-full text-center align-self-center">

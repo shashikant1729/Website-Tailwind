@@ -6,7 +6,7 @@ import { SlSocialLinkedin } from "react-icons/sl";
 import { BsInstagram } from "react-icons/bs";
 
 const Home = () => {
-	// const { activeMenu, showDiv, setShowDiv } = useStateContext();
+	// const { activeMenu, setActiveMenu } = useStateContext();
 	return (
 		<div className="flex flex-col w-full h-full bg-bg-home bg-cover bg-center relative">
 			<div
