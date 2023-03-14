@@ -10,9 +10,25 @@ import { AboutCarousel } from "../components/Index";
 import { MdOutlineCases } from "react-icons/md";
 import { BiLike } from "react-icons/bi";
 import { useStateContext } from "../contexts/ContextProvider";
+const resume =  require('../assets/Documents/09620202207_Student_Details.pdf')
 
 const About = () => {
 	const { currentColor } = useStateContext();
+
+	const pdfDownload = () => {
+        // using Java Script method to get PDF file
+        fetch(resume).then(response => {
+            response.blob().then(blob => {
+                // Creating new object of PDF file
+                const fileURL = window.URL.createObjectURL(blob);
+                // Setting various property values
+                let alink = document.createElement('a');
+                alink.href = fileURL;
+                alink.download = 'Shashi_Kant_Resume.pdf';
+                alink.click();
+            })
+        })
+    }
 	return (
 		<div className="w-full h-full max-h-screen overflow-y-auto ">
 			<div className="flex text-3xl sm:text-4xl md:text-5xl lg:text-6xl h-40 w-full text-center align-self-center">
@@ -84,6 +100,7 @@ const About = () => {
 						</div>
 						<div className="pt-10">
 							<button
+								onClick={pdfDownload}
 								type="button"
 								className="rounded-md customColorBg  transition-all delay-150 p-4 text-md font-semibold "
 							>

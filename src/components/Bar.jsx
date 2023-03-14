@@ -11,7 +11,7 @@ const Bar = () => {
 		<div className="flex items-center justify-between  py-8 ">
 			<div
 				className={`flex flex-col transition-all rounded-md  bg-black p-4 ${
-					activeMenu ? "w-60 max-h-min " : "w-14 max-h-min"
+					activeMenu ? "w-52 max-h-min " : "w-14 max-h-min"
 				}`}
 			>
 				<div className="flex w-full justify-end h-6">

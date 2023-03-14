@@ -1,11 +1,9 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React from "react";
 import { AiOutlineSetting } from "react-icons/ai";
-import { MdOutlineWaterDrop } from "react-icons/md";
-import { BsFillDropletFill } from "react-icons/bs";
 import { FaEyeDropper } from "react-icons/fa";
 import { useStateContext } from "../contexts/ContextProvider";
+import { SketchPicker } from 'react-color'
 
 const Setting = () => {
 	const { currentColor, setCurrentColor, currentSetting, setCurrentSetting } =
@@ -14,36 +12,44 @@ const Setting = () => {
 	// console.log(isNavOpen);
 	const allColors = [
 		{
+			id:0,
+			color:'#fa0707'
+		},
+		{
 			id: 1,
-			color: "#32a842",
+			color: "#fabd07",
 		},
 		{
 			id: 2,
-			color: "#a83232",
+			color: "#b9fa07",
 		},
 		{
 			id: 3,
-			color: "#a89e32",
+			color: "#50fa07",
 		},
 		{
 			id: 4,
-			color: "#6da832",
+			color: "#07faa1",
 		},
 		{
 			id: 5,
-			color: "#32a88e",
+			color: "#07b9fa",
 		},
 		{
 			id: 6,
-			color: "#3285a8",
+			color: "#071ffa",
 		},
 		{
 			id: 7,
-			color: "#3632a8",
+			color: "#bd07fa",
 		},
 		{
 			id: 8,
-			color: "#f50ace",
+			color: "#fa07b9",
+		},
+		{
+			id: 9,
+			color: "#fa0740",
 		},
 	];
 
@@ -102,6 +108,7 @@ const Setting = () => {
 								))}
 						</div>
 						<div className="w-2/3 h-0.5  bg-slate-500 place-self-center mr-4"></div>
+						{/* <SketchPicker /> */}
 						<p className="w-full text-center">Body Skin</p>
 						<div>
 							<div className="mx-auto flex justify-center flex-col gap-6">
