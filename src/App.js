@@ -11,67 +11,69 @@ const App = () => {
 	const { setCurrentSetting, setActiveMenu } = useStateContext();
 	return (
 		<div className="absolute w-screen h-screen max-h-screen overflow-hidden">
-			<div
-				onClick={() => {
-					setActiveMenu(false);
-					setCurrentSetting(false);
-				}}
-				className=" w-full h-full z-100"
-			>
-				{/* <BrowserRouter> */}
-				<Routes>
-					<Route
-						exact
-						path="/"
-						element={
-							<Suspense
-								fallback={
-									<div className="bg-gray-800 w-full h-full text-center text-8xl text-white">
-										Wait for Home....
-									</div>
-								}
-							>
+			<Suspense fallback={<div className="bg-gray-800 w-full h-full text-center text-4xl text-white">Wait........</div>}>
+				<div
+					onClick={() => {
+						setActiveMenu(false);
+						setCurrentSetting(false);
+					}}
+					className=" w-full h-full z-100"
+				>
+					{/* <BrowserRouter> */}
+					<Routes>
+						<Route
+							exact
+							path="/"
+							element={
+								// <Suspense
+								// 	fallback={
+								// 		<div className="bg-gray-800 w-full h-full text-center text-8xl text-white">
+								// 			Wait for Home....
+								// 		</div>
+								// 	}
+								// >
+								// </Suspense>
 								<Homy />
-							</Suspense>
-						}
-					/>
-					<Route
-						exact
-						path="/about"
-						element={
-							<Suspense
-								fallback={
-									<div className="bg-gray-800 w-full h-full  text-center text-8xl text-white">
-										Wait for About....
-									</div>
-								}
-							>
+							}
+						/>
+						<Route
+							exact
+							path="/about"
+							element={
+								// <Suspense
+								// 	fallback={
+								// 		<div className="bg-gray-800 w-full h-full  text-center text-8xl text-white">
+								// 			Wait for About....
+								// 		</div>
+								// 	}
+								// >
+								// </Suspense>
 								<Abouty />
-							</Suspense>
-						}
-					/>
-					<Route
-						exact
-						path="/contact"
-						element={
-							<Suspense
-								fallback={
-									<div className="bg-gray-800 w-full h-full  text-center text-8xl text-white">
-										Wait for Contact....
-									</div>
-								}
-							>
+							}
+						/>
+						<Route
+							exact
+							path="/contact"
+							element={
+								// <Suspense
+								// 	fallback={
+								// 		<div className="bg-gray-800 w-full h-full  text-center text-8xl text-white">
+								// 			Wait for Contact....
+								// 		</div>
+								// 	}
+								// >
+								// </Suspense>
 								<Contacty />
-							</Suspense>
-						}
-					/>
-				</Routes>
-				{/* </BrowserRouter> */}
-			</div>
-			<div className="absolute top-2 right-8 ">
+							}
+						/>
+					</Routes>
+					{/* </BrowserRouter> */}
+				</div>
+			</Suspense>
+			<div className="absolute top-1 right-6 ">
 				<Bar />
 			</div>
-			<div className="absolute top-40 right-0 ">
+			<div className="absolute top-28 right-0 ">
 				<Setting />
 			</div>
 		</div>

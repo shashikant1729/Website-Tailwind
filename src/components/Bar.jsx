@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const Bar = () => {
-	const { activeMenu, setActiveMenu } = useStateContext();
+	const { activeMenu, setActiveMenu, currentColor , setCurrentSetting} = useStateContext();
 	// const [isNavOpen, setIsNavOpen] = useState(false);
 	// console.log(isNavOpen);
 
@@ -17,7 +17,7 @@ const Bar = () => {
 				<div className="flex w-full justify-end h-6">
 					<button
 						type="button"
-						onClick={() => setActiveMenu((prev) => !prev)}
+						onClick={() => (setActiveMenu((prev) => !prev, setCurrentSetting(false)))}
 						className=" flex flex-col justify-between  w-8 h-6"
 					>
 						<span
@@ -53,8 +53,8 @@ const Bar = () => {
 						<NavLink
 							onClick={() => setActiveMenu(false)}
 							className={({ isActive }) =>
-								`h-full w-1 hover:bg-pink-600 hover:text-pink-600 ${
-									isActive ? "text-pink-600  bg-pink-600" : "h-full w-1"
+								`h-full w-1 customCBg ${
+									isActive ? "customColor customBg" : "h-full w-1 "
 								}`
 							}
 							to="/"
@@ -64,8 +64,8 @@ const Bar = () => {
 						<NavLink
 							onClick={() => setActiveMenu(false)}
 							className={({ isActive }) =>
-								`h-full w-1 hover:bg-pink-600 hover:text-pink-600 ${
-									isActive ? "text-pink-600  bg-pink-600" : "h-full w-1"
+								`h-full w-1 customCBg ${
+									isActive ? "customColor customBg" : "h-full w-1 "
 								}`
 							}
 							to="/about"
@@ -75,8 +75,8 @@ const Bar = () => {
 						<NavLink
 							onClick={() => setActiveMenu(false)}
 							className={({ isActive }) =>
-								`h-full w-1 hover:bg-pink-600 hover:text-pink-600 ${
-									isActive ? "text-pink-600  bg-pink-600" : "h-full w-1"
+								`h-full w-1 customCBg ${
+									isActive ? "customColor customBg" : "h-full w-1 "
 								}`
 							}
 							to="/contact"
@@ -86,6 +86,25 @@ const Bar = () => {
 					</div>
 				</div>
 			</div>
+			<style>
+				{`  
+                    .customCBg:hover{
+						color:${currentColor};
+						background-color:${currentColor}
+						
+					}
+					.customColor {
+						color:${currentColor}
+					}
+					.customHover:hover{
+						color:${currentColor}
+					}
+					.customBg{
+						background-color:${currentColor}
+					}
+					
+					`}
+			</style>
 		</div>
 	);
 };

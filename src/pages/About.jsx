@@ -17,7 +17,7 @@ const About = () => {
 		<div className="w-full h-full max-h-screen overflow-y-auto ">
 			<div className="flex text-3xl sm:text-4xl md:text-5xl lg:text-6xl h-40 w-full text-center align-self-center">
 				<div className="m-auto mt-20 font-abfat">
-					About <span className="text-pink-600">Me</span>{" "}
+					About <span className="customColor">Me</span>{" "}
 				</div>
 			</div>
 			<div className="flex flex-col w-full">
@@ -40,42 +40,42 @@ const About = () => {
 						</p>
 						<div className="grid grid-rows-3 md:grid-flow-col gap-4 pt-8 font-sans ">
 							<div className="flex flex-row gap-2 text-lg">
-								<span className="text-pink-600">
+								<span className="customColor">
 									<FaBirthdayCake />
 								</span>{" "}
 								<span>Birthday : </span>{" "}
 								<span className="font-semibold">June 2002</span>
 							</div>
 							<div className="flex flex-row gap-2 text-lg">
-								<span className="text-pink-600">
+								<span className="customColor">
 									<BsFlag />
 								</span>{" "}
 								<span>Nationality : </span>{" "}
 								<span className="font-semibold">Indian</span>
 							</div>
 							<div className="flex flex-row gap-2 text-lg">
-								<span className="text-pink-600">
+								<span className="customColor">
 									<AiOutlineSetting />
 								</span>{" "}
 								<span>Experience : </span>
 								<span className="font-semibold">1 Year </span>
 							</div>
 							<div className="flex flex-row gap-2 text-lg">
-								<span className="text-pink-600">
+								<span className="customColor">
 									<BsFillTelephoneFill />
 								</span>{" "}
 								<span>Phone : </span>{" "}
 								<span className="font-semibold">+91 9369 249395</span>
 							</div>
 							<div className="flex flex-row gap-2 text-lg">
-								<span className="text-pink-600">
+								<span className="customColor">
 									<HiLocationMarker />
 								</span>{" "}
 								<span>Address : </span>
 								<span className="font-semibold">Varanasi, India</span>
 							</div>
 							<div className="flex flex-row gap-2 text-lg">
-								<span className="text-pink-600">
+								<span className="customColor">
 									<GrMail />
 								</span>{" "}
 								<span>Email : </span>
@@ -85,7 +85,7 @@ const About = () => {
 						<div className="pt-10">
 							<button
 								type="button"
-								className="rounded-md bg-pink-600 text-white hover:bg-slate-200 hover:text-pink-600 transition-all delay-150 p-4 text-md font-semibold border-3 border-pink-600"
+								className="rounded-md customColorBg  transition-all delay-150 p-4 text-md font-semibold "
 							>
 								Download My CV
 							</button>
@@ -102,7 +102,7 @@ const About = () => {
 					<div className="flex flex-col pt-10">
 						<div className="text-xl text-center font-serif font-bold ">
 							<span>
-								<button className="text-pink-600 md:mx-2 uppercase">
+								<button className="customColor md:mx-2 uppercase">
 									Experience
 								</button>
 							</span>
@@ -126,21 +126,21 @@ const About = () => {
 						}}
 					></div> */}
 					<div className="flex flex-col gap-4 place-items-center font-bold text-lg z-2 text-center ">
-						<p className="text-4xl rounded-3xl drop-shadow-xl bg-pink-600 p-2 text-white">
+						<p className="text-4xl rounded-3xl drop-shadow-xl customBg p-2 text-white">
 							<MdOutlineCases />
 						</p>
 						<p className="text-4xl">2</p>
 						<p>Years Experience</p>
 					</div>
 					<div className="flex flex-col gap-4 place-items-center font-bold text-lg text-center">
-						<p className="text-4xl rounded-3xl drop-shadow-xl bg-pink-600 p-2 text-white">
+						<p className="text-4xl rounded-3xl drop-shadow-xl customBg p-2 text-white">
 							<BiLike />
 						</p>
 						<p className="text-4xl">15</p>
 						<p>Project Done</p>
 					</div>
 					<div className="flex flex-col gap-4 place-items-center font-bold text-lg text-center">
-						<p className="text-4xl rounded-3xl drop-shadow-xl bg-pink-600 p-2 text-white">
+						<p className="text-4xl rounded-3xl drop-shadow-xl customBg p-2 text-white">
 							<AiOutlineHeart />
 						</p>
 						<p className="text-4xl">20</p>
@@ -160,6 +160,27 @@ const About = () => {
 				</div>
 				<div className="flex"></div>
 			</div>
+			<style>
+				{`  .customColorBg {
+                        background-color: ${currentColor};
+                    }
+                    .customColorBg:hover{
+						color:${currentColor};
+						background-color:white
+						
+					}
+					.customColor {
+						color:${currentColor}
+					}
+					.customHover:hover{
+						color:${currentColor}
+					}
+					.customBg{
+						background-color : ${currentColor}
+					}
+					
+					`}
+			</style>
 		</div>
 	);
 };
