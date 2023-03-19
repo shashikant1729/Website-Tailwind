@@ -11,7 +11,13 @@ const App = () => {
 	const { setCurrentSetting, setActiveMenu } = useStateContext();
 	return (
 		<div className="absolute w-screen h-screen max-h-screen overflow-hidden">
-			<Suspense fallback={<div className="bg-gray-800 w-full h-full text-center text-4xl text-white">Wait........</div>}>
+			<Suspense
+				fallback={
+					<div className="bg-gray-800 w-full h-full text-center text-4xl text-white">
+						Wait........
+					</div>
+				}
+			>
 				<div
 					onClick={() => {
 						setActiveMenu(false);

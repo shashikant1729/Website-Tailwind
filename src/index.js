@@ -1,25 +1,40 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
+// import App from "./App";
 import { ContextProvider } from "./contexts/ContextProvider";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
+
+const Appy = lazy(() => import("./App"));
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
+const PreLoader = () => {
+	return (
+		<div className="fixed w-screen h-screen  bg-black flex m-auto">
+			<button
+				type="button"
+				className="w-6 h-6 bg-white rounded-full animate-bounce m-auto transition-all delay-75"
+			></button>
+			<button
+				type="button"
+				className="w-6 h-6 bg-white rounded-full animate-bounce m-auto transition-all delay-75"
+			></button>
+			<button
+				type="button"
+				className="w-6 h-6 bg-white rounded-full animate-bounce m-auto transition-all delay-75"
+			></button>
+		</div>
+	);
+};
 root.render(
-	<Suspense
-		fallback={
-			<div className="bg-gray-800 w-full h-full text-center text-4xl text-white">
-				Wait........
-			</div>
-		}
-	>
+	<Suspense fallback={<PreLoader />}>
 		<BrowserRouter>
 			<React.StrictMode>
 				<ContextProvider>
-					<App />
+					<Appy />
+					{/* <PreLoader/> */}
 				</ContextProvider>
 			</React.StrictMode>
 		</BrowserRouter>
