@@ -5,7 +5,7 @@ const StateContext = createContext();
 
 export const ContextProvider = ({ children }) => {
 	const [activeMenu, setActiveMenu] = useState(false);
-	const [currentColor, setCurrentColor] = useState("#5018de");
+	const [currentColor, setCurrentColor] = useState("#fa0707");
 	const [currentSetting, setCurrentSetting] = useState(false);
 	return (
 		<StateContext.Provider

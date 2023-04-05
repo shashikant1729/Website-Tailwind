@@ -47,8 +47,10 @@ module.exports = {
 			},
 			backgroundImage: {
 				"hero-pattern": "url('https://i.ibb.co/MkvLDfb/Rectangle-4389.png')",
-				"bg-home":
+				"bg-home-1":
 					"linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.7)), url('assets/images/bg.jpg')",
+				"bg-home-2":
+					"linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.8)), url('assets/images/home-2.jpeg')",
 			},
 		},
 	},

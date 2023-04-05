@@ -6,7 +6,7 @@ import { BsFlag, BsFillTelephoneFill } from "react-icons/bs";
 import { HiLocationMarker } from "react-icons/hi";
 import { GrMail } from "react-icons/gr";
 import { AiOutlineSetting, AiOutlineHeart } from "react-icons/ai";
-import { AboutCarousel } from "../components/Index";
+import { AboutCarousel, AboutCar } from "../components/Index";
 import { MdOutlineCases } from "react-icons/md";
 import { BiLike } from "react-icons/bi";
 import { useStateContext } from "../contexts/ContextProvider";
@@ -56,42 +56,42 @@ const About = () => {
 						</p>
 						<div className="grid grid-rows-3 md:grid-flow-col gap-4 pt-8 font-sans ">
 							<div className="flex flex-row gap-2 text-lg">
-								<span className="customColor">
+								<span className="customColor text-2xl">
 									<FaBirthdayCake />
 								</span>{" "}
 								<span>Birthday : </span>{" "}
 								<span className="font-semibold">June 2002</span>
 							</div>
 							<div className="flex flex-row gap-2 text-lg">
-								<span className="customColor">
+								<span className="customColor text-2xl">
 									<BsFlag />
 								</span>{" "}
 								<span>Nationality : </span>{" "}
 								<span className="font-semibold">Indian</span>
 							</div>
 							<div className="flex flex-row gap-2 text-lg">
-								<span className="customColor">
+								<span className="customColor text-2xl">
 									<AiOutlineSetting />
 								</span>{" "}
 								<span>Experience : </span>
 								<span className="font-semibold">1 Year </span>
 							</div>
 							<div className="flex flex-row gap-2 text-lg">
-								<span className="customColor">
+								<span className="customColor text-2xl">
 									<BsFillTelephoneFill />
 								</span>{" "}
 								<span>Phone : </span>{" "}
 								<span className="font-semibold">+91 9369 249395</span>
 							</div>
 							<div className="flex flex-row gap-2 text-lg">
-								<span className="customColor">
+								<span className="customColor text-2xl">
 									<HiLocationMarker />
 								</span>{" "}
 								<span>Address : </span>
 								<span className="font-semibold">Varanasi, India</span>
 							</div>
 							<div className="flex flex-row gap-2 text-lg">
-								<span className="customColor">
+								<span className="customColor text-2xl">
 									<GrMail />
 								</span>{" "}
 								<span>Email : </span>
@@ -102,7 +102,7 @@ const About = () => {
 							<button
 								onClick={pdfDownload}
 								type="button"
-								className="rounded-md customColorBg  transition-all delay-150 p-4 text-md font-semibold "
+								className="rounded-md customColorBg  transition-all delay-150 p-4 text-lg font-semibold "
 							>
 								Download My CV
 							</button>
@@ -130,6 +130,7 @@ const About = () => {
 						</div>
 						<div>
 							<AboutCarousel />
+							<AboutCar/>
 						</div>
 					</div>
 				</div>

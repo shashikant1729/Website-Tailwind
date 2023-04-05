@@ -21,21 +21,28 @@ const Bar = () => {
 						className=" flex flex-col justify-between  w-8 h-6"
 					>
 						<span
-							className={`h-0.5 w-full transition-all duration-100  bg-white  ${
+						style={{backgroundColor:currentColor}}
+							className={`h-0.5 w-full transition-all duration-100  ${
 								activeMenu ? `invisible` : `block `
 							}`}
 						></span>
 						<span
+						style={{backgroundColor:currentColor}}
+
 							className={`block h-0.5 w-full origin-center transition-all duration-500   bg-white ${
 								activeMenu ? `rotate-225` : ``
 							}`}
 						></span>
 						<span
+						style={{backgroundColor:currentColor}}
+
 							className={` h-0.5 w-full transition-all duration-500  origin-center  -mt-3 bg-white ${
 								activeMenu ? `block -rotate-225` : `invisible`
 							}`}
 						></span>
 						<span
+						style={{backgroundColor:currentColor}}
+
 							className={` h-0.5 w-full transition-all duration-100   bg-white ${
 								activeMenu ? `invisible` : `block`
 							}`}

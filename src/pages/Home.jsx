@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { useStateContext } from "../contexts/ContextProvider";
 import { RiFacebookFill } from "react-icons/ri";
 import { FiTwitter, FiMail } from "react-icons/fi";
@@ -8,7 +9,7 @@ import { BsInstagram } from "react-icons/bs";
 const Home = () => {
 	const { currentColor } = useStateContext();
 	return (
-		<div className="flex flex-col w-full h-full bg-bg-home bg-cover bg-center relative">
+		<div className="flex flex-col w-full h-full bg-bg-home-2 bg-cover bg-center relative">
 			<div
 				className="absolute h-96 w-80 md:origin-top-left md:rotate-12 md:-left-56 md:-top-20  z-1 origin-top-left rotate-45 -left-8 -bottom-60 "
 				style={{
@@ -27,16 +28,19 @@ const Home = () => {
 							I'm a Electronics Engineer and Software Developer based in
 							Varanasi, India.
 						</p>
+						<NavLink 
+						to ="/about"
+						className={`customColorBg rounded-md p-3 transition-all delay-300 drop-shadow-lg hover:drop-shadow-2xl`}>
 						<button
-							className={`customColorBg rounded-md p-3 transition-all delay-300 drop-shadow-lg hover:drop-shadow-2xl`}
+							
 						>
 							MORE ABOUT ME
-						</button>
+						</button></NavLink>
 					</div>
 				</div>
 			</div>
 			<div className="flex flex-row w-0 h-0 md:w-full md:h-1/6 justify-between overflow-hidden">
-				<div className="flex flex-col justify-end text-white p-4 gap-1 text-sm  ">
+				<div className="flex flex-col justify-end text-white p-4 gap-1 text-md  ">
 					<p>Let's work together</p>
 					<p className="customColor cursor-pointer">
 						<a href="mailto:shashi1729kant@gmail.com">shashi1729kant</a>

@@ -3,7 +3,8 @@ import React from "react";
 import { AiOutlineSetting } from "react-icons/ai";
 import { FaEyeDropper } from "react-icons/fa";
 import { useStateContext } from "../contexts/ContextProvider";
-import { SketchPicker } from 'react-color'
+import { SketchPicker } from "react-color";
+import { Switch } from "@material-tailwind/react";
 
 const Setting = () => {
 	const { currentColor, setCurrentColor, currentSetting, setCurrentSetting } =
@@ -12,8 +13,8 @@ const Setting = () => {
 	// console.log(isNavOpen);
 	const allColors = [
 		{
-			id:0,
-			color:'#fa0707'
+			id: 0,
+			color: "#fa0707",
 		},
 		{
 			id: 1,
@@ -67,6 +68,7 @@ const Setting = () => {
 						className=" flex flex-col justify-between  w-8 h-6 text-white"
 					>
 						<AiOutlineSetting
+							style={{ color: currentColor }}
 							className={`w-full h-full ${
 								currentSetting ? "" : "animate-spin"
 							} `}
@@ -109,42 +111,32 @@ const Setting = () => {
 						</div>
 						<div className="w-2/3 h-0.5  bg-slate-500 place-self-center mr-4"></div>
 						{/* <SketchPicker /> */}
-						<p className="w-full text-center">Body Skin</p>
+						<p className="w-full text-center font-bold">Body Skin</p>
 						<div>
-							<div className="mx-auto flex justify-center flex-col gap-6">
-								{/* Code block starts */}
-								<div className="flex items-center">
-									<div className="bg-white dark:bg-gray-100 rounded-full w-4 h-4 flex flex-shrink-0 justify-center items-center relative">
+							<div className="mx-auto w-full flex justify-center flex-col gap-6">
+								
+								<div class="inline-flex items-center">
+									<p className="px-4">Light</p>
+									<div class="relative  h-4 w-8 cursor-pointer rounded-full">
+									
 										<input
-											defaultChecked
-											type="radio"
-											name="radio"
-											className="checkbox appearance-none focus:outline-none border rounded-full border-gray-400 absolute cursor-pointer w-full h-full checked:border-none"
+											id="switch-component"
+											type="checkbox"
+											class="peer absolute h-4 w-8 cursor-pointer appearance-none rounded-full bg-blue-gray-100 transition-colors duration-300 checked:bg-pink-500 peer-checked:border-pink-500 peer-checked:before:bg-pink-500"
 										/>
-										<div className="check-icon hidden border-4 border-indigo-700 rounded-full w-full h-full z-1" />
+										<label
+											for="switch-component"
+											class="before:content[''] absolute top-2/4 -left-1 h-5 w-5 -translate-y-2/4 cursor-pointer rounded-full border border-blue-gray-100 bg-white shadow-md transition-all duration-300 before:absolute before:top-2/4 before:left-2/4 before:block before:h-10 before:w-10 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity hover:before:opacity-10 peer-checked:translate-x-full peer-checked:border-pink-500 peer-checked:before:bg-pink-500"
+										> 
+											<div
+												class="top-2/4 left-2/4 inline-block -translate-x-2/4 -translate-y-2/4 rounded-full p-5"
+												data-ripple-dark="true"
+											></div>
+										</label>
 									</div>
-									<p className="ml-2 text-sm leading-4 font-normal text-white dark:text-gray-100">
-										Light
-									</p>
+									<p className="px-4">Dark</p>
 								</div>
-								{/* Code block ends */}
-								{/* Code block starts */}
-								<div className="flex items-center">
-									<div className="bg-white dark:bg-gray-100 rounded-full w-4 h-4 flex flex-shrink-0 justify-center items-center relative">
-										<input
-											type="radio"
-											name="radio"
-											className="checkbox appearance-none focus:outline-none border rounded-full border-gray-400 absolute cursor-pointer w-full h-full checked:border-none"
-										/>
-										<div className="check-icon hidden border-4 border-indigo-700 rounded-full w-full h-full z-1" />
-									</div>
-									<p className="ml-2 text-sm leading-4 font-normal text-white dark:text-gray-100">
-										Dark
-									</p>
-								</div>
-								{/* Code block ends */}
-								{/* Code block starts */}
-								{/* Code block ends */}
+
 								<style>
 									{`  .checkbox:checked {
                         border: none;
