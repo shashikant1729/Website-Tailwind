@@ -6,29 +6,31 @@ import { BsFlag, BsFillTelephoneFill } from "react-icons/bs";
 import { HiLocationMarker } from "react-icons/hi";
 import { GrMail } from "react-icons/gr";
 import { AiOutlineSetting, AiOutlineHeart } from "react-icons/ai";
-import { AboutCarousel, AboutCar } from "../components/Index";
+import { AboutCarousel, AboutScroll, ProgressBar } from "../components/Index";
 import { MdOutlineCases } from "react-icons/md";
 import { BiLike } from "react-icons/bi";
 import { useStateContext } from "../contexts/ContextProvider";
-const resume =  require('../assets/Documents/09620202207_Student_Details.pdf')
+import { queryByTestId } from "@testing-library/react";
+const resume = require("../assets/Documents/09620202207_Student_Details.pdf");
 
 const About = () => {
-	const { currentColor } = useStateContext();
+	const { currentColor, aboutData, setAboutData } = useStateContext();
+	// console.log(aboutData);
 
 	const pdfDownload = () => {
-        // using Java Script method to get PDF file
-        fetch(resume).then(response => {
-            response.blob().then(blob => {
-                // Creating new object of PDF file
-                const fileURL = window.URL.createObjectURL(blob);
-                // Setting various property values
-                let alink = document.createElement('a');
-                alink.href = fileURL;
-                alink.download = 'Shashi_Kant_Resume.pdf';
-                alink.click();
-            })
-        })
-    }
+		// using Java Script method to get PDF file
+		fetch(resume).then((response) => {
+			response.blob().then((blob) => {
+				// Creating new object of PDF file
+				const fileURL = window.URL.createObjectURL(blob);
+				// Setting various property values
+				let alink = document.createElement("a");
+				alink.href = fileURL;
+				alink.download = "Shashi_Kant_Resume.pdf";
+				alink.click();
+			});
+		});
+	};
 	return (
 		<div className="w-full h-full max-h-screen overflow-y-auto ">
 			<div className="flex text-3xl sm:text-4xl md:text-5xl lg:text-6xl h-40 w-full text-center align-self-center">
@@ -111,27 +113,62 @@ const About = () => {
 				</div>
 				<div className="flex flex-col w-full py-16 px-12 bg-slate-100">
 					<div className="w-full place-content-center pb-4">
-						<p className="   text-4xl text-center font-serif font-bold ">
+						<p className="text-4xl text-center font-serif font-bold ">
 							My Resume
 						</p>
+						{console.log(aboutData.myResume)}
 					</div>
-
-					<div className="flex flex-col pt-10">
-						<div className="text-xl text-center font-serif font-bold ">
-							<span>
-								<button className="customColor md:mx-2 uppercase">
-									Experience
-								</button>
-							</span>
-							|
-							<span>
-								<button className="md:mx-2 uppercase">Education</button>
-							</span>
-						</div>
-						<div>
-							<AboutCarousel />
-							<AboutCar/>
-						</div>
+					<div className="text-xl text-center font-serif font-bold ">
+						<span>
+							<button
+								className={
+									aboutData.myResume === "experience"
+										? `customColor md:mx-2 uppercase transition ease-in delay-175`
+										: "md:mx-2 uppercase"
+								}
+								onClick={() =>
+									setAboutData((prevState) => ({
+										...prevState,
+										myResume: "experience",
+									}))
+								}
+							>
+								Experience
+							</button>
+						</span>
+						|
+						<span>
+							<button
+								className={
+									aboutData.myResume === "education"
+										? `customColor  md:mx-2 uppercase transition ease-in delay-175`
+										: "md:mx-2 uppercase"
+								}
+								onClick={() =>
+									{setAboutData((prevState) => ({
+										...prevState,
+										myResume: "education",
+									}))}
+								}
+							>
+								Education
+							</button>
+						</span>
+					</div>
+					<div className="">
+						{aboutData.myResume === "education" ? (
+							<>
+								<div className="transition ease-in delay-300	" testId= "education">
+									<AboutScroll data={aboutData.education} />
+								</div>
+							</>
+						) : (
+							<>
+								<div className="transition ease-in delay-300">
+									<AboutScroll data={aboutData.experience} />
+								</div>
+							</>
+						)}
 					</div>
 				</div>
 				<div className="flex flex-col lg:flex-row w-full py-16 px-12 justify-around gap-24 place-items-center">
@@ -173,7 +210,9 @@ const About = () => {
 					</div>
 
 					<div className="flex flex-col pt-10">
-						<AboutCarousel />
+						{/* <AboutCarousel /> */}
+						{/* <AboutScroll /> */}
+						<ProgressBar data={aboutData.skills} />
 					</div>
 				</div>
 				<div className="flex"></div>

@@ -10,6 +10,7 @@ module.exports = {
 			abfat: ["Abril Fatface"],
 		},
 		extend: {
+			
 			rotate: {
 				17: "17deg",
 				225:"225deg"
@@ -55,4 +56,5 @@ module.exports = {
 		},
 	},
 	plugins: [require("tailwindcss-blend-mode")()],
+	
 };
