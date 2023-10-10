@@ -4,7 +4,7 @@ const ProgressBar = ({ data }) => {
 	return (
 		<div>
 			{/* <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script> */}
-			<div class="min-h-screen  bg-gray-100">
+			<div class=" bg-gray-100">
 				<div class="grid grid-cols-1 gap-20 lg:grid-cols-2 lg:gap-10">
 					{data.map((item, index) => {
 						return (
@@ -27,17 +27,36 @@ const ProgressBar = ({ data }) => {
 											cx="60"
 											cy="60"
 										/> */}
-                    <g 
-                    // transform="rotate(-90 100 100)"
-                    className="hover:animate-pulse"
-                    >
-										<circle  cx="60" cy="60" r="30" stroke="rgb(0,51,117)" stroke-width="5" fill="none" stroke-dasharray='188.4' stroke-dashoffset="90" ></circle>
-                    </g>
-                    <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" className="font-bold">85%</text>
-{/* </svg> */}
+										<g
+											// transform="rotate(-90 100 100)"
+											className="hover:animate-pulse"
+										>
+											<circle
+												cx="60"
+												cy="60"
+												r="30"
+												stroke="rgb(0,51,117)"
+												stroke-width="5"
+												fill="none"
+												stroke-dasharray="200"
+												stroke-dashoffset={200 - 2*item.percentage}
+											></circle>
+										</g>
+										<text
+											x="50%"
+											y="50%"
+											dominant-baseline="central"
+											text-anchor="middle"
+											className="font-bold"
+										>
+											{item.percentage}%
+										</text>
+										{/* </svg> */}
+										
 										<circle
-                      className="text-red-500"
-											class={`text-${item.color}`}
+											// className="text-red-500"
+											// className={`text-${item.color}`}
+											color={`${item.color}`}
 											stroke-width="10"
 											// :stroke-dasharray="circumference"
 											// :stroke-dashoffset="circumference - percent / 100 * circumference"
@@ -54,7 +73,7 @@ const ProgressBar = ({ data }) => {
 										x-text="`${percent}%`"
 									></span> */}
 								</div>
-								<p class="flex-1 text-center ml-3  text-gray-600 sm:text-xl font-semibold ">
+								<p class="flex-1 text-center ml-3  text-gray-800 sm:text-xl font-semibold ">
 									{item.name}
 								</p>
 
@@ -66,8 +85,6 @@ const ProgressBar = ({ data }) => {
 					})}
 				</div>
 			</div>
-
-
 		</div>
 	);
 };

@@ -11,6 +11,7 @@ import { MdOutlineCases } from "react-icons/md";
 import { BiLike } from "react-icons/bi";
 import { useStateContext } from "../contexts/ContextProvider";
 import { queryByTestId } from "@testing-library/react";
+import pdf from "../assets/Documents/09620202207_Student_Details.pdf";
 const resume = require("../assets/Documents/09620202207_Student_Details.pdf");
 
 const About = () => {
@@ -101,13 +102,15 @@ const About = () => {
 							</div>
 						</div>
 						<div className="pt-10">
-							<button
-								onClick={pdfDownload}
+							<a
+								target="_blank"
+								rel="noreferrer"
 								type="button"
 								className="rounded-md customColorBg  transition-all delay-150 p-4 text-lg font-semibold "
+								href={pdf}
 							>
 								Download My CV
-							</button>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -144,12 +147,12 @@ const About = () => {
 										? `customColor  md:mx-2 uppercase transition ease-in delay-175`
 										: "md:mx-2 uppercase"
 								}
-								onClick={() =>
-									{setAboutData((prevState) => ({
+								onClick={() => {
+									setAboutData((prevState) => ({
 										...prevState,
 										myResume: "education",
-									}))}
-								}
+									}));
+								}}
 							>
 								Education
 							</button>
@@ -158,14 +161,23 @@ const About = () => {
 					<div className="">
 						{aboutData.myResume === "education" ? (
 							<>
-								<div className="transition ease-in delay-300	" testId= "education">
-									<AboutScroll data={aboutData.education} />
+								<div
+									className="transition ease-in delay-300	"
+									testId="education"
+								>
+									<AboutScroll
+										data={aboutData.education}
+										myResume={aboutData.myResume}
+									/>
 								</div>
 							</>
 						) : (
 							<>
 								<div className="transition ease-in delay-300">
-									<AboutScroll data={aboutData.experience} />
+									<AboutScroll
+										data={aboutData.experience}
+										myResume={aboutData.myResume}
+									/>
 								</div>
 							</>
 						)}
@@ -203,7 +215,7 @@ const About = () => {
 					</div>
 				</div>
 				<div className="flex flex-col w-full py-16 px-12 bg-slate-100">
-					<div className="w-full place-content-center pb-4">
+					<div className="w-full place-content-center">
 						<p className="   text-4xl text-center font-serif font-bold ">
 							Skill
 						</p>
